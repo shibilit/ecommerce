@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #bg {
+            background-repeat: no-repeat;
+            background-size: 1400px 700px;
+            background-position: top;
+            background-attachment: fixed;
+        }
+
+
+        .main_div {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            /* background-color: rgb(128, 119, 108); */
+            height: 800px;
+
+        }
+
+        .box {
+            background-color: transparent;
+            border: 2px solid black;
+            display: block;
+            margin-top: auto;
+            margin-bottom: auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 60%;
+            height: 450px;
+        }
+
+        input {
+            width: 330px;
+            height: 30px;
+            border-radius: 10px;
+        }
+
+        button {
+            width: 150px;
+            height: 50px;
+            border-radius: 10px;
+
+        }
+
+        h1 {
+            /* text-align: right; */
+            padding-left: 450px;
+            padding-bottom: 0px;
+
+        }
+
+        h4 {
+            padding-left: 500px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        #btn1 {
+            margin-left: 500px;
+            width: 200px;
+            height: 40px;
+        }
+
+        #btn2 {
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body id="bg" style="background-image: url('{% static 'img/background5.png' %}');">
+    <div class="main_div">
+        <div class="box">
+            <h2>Login to Your Account</h2>
+            <h1><b>New Here?</b><br>
+                <h4>Sign Up or Create an Account</h4>
+            </h1>
+            <button id="btn1" type="button"><a href="http://127.0.0.1:8000/common/cust_reg">Sign UP</a></button>
+
+            <form id="form1" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <P>please login to Your Account</P>
+                <input type="text" name="c_mail" placeholder="Email or Mobile"><br><br>
+                <input type="password" name="c_password" placeholder="Password">
+                <br><br>
+                <button id="btn2" type="submit"><b>Log in</b></button><span>
+                    {{msg}}
+                    <a href="http://127.0.0.1:8000/customer/chge_pass"> Forgot Password?</a></span>
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

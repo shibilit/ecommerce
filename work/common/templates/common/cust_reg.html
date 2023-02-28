@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+   
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #bg {
+            background-repeat: no-repeat;
+            background-size: 1400px 700px;
+            background-position: top;
+            background-attachment: fixed;
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 700px;
+
+        }
+
+        .box {
+            background-color: transparent;
+            border: 2px solid black;
+            display: block;
+            margin-top: 40px;
+            margin-bottom: auto;
+            padding: 20px;
+            padding-top: 10px;
+            border-radius: 10px;
+            width: 420px;
+            height: 580px;
+        }
+
+        input {
+            border-radius: 5px;
+        }
+
+        #in1 {
+            width: 350px;
+        }
+
+        button {
+            width: 140px;
+            height: 30px;
+            background-color: rgb(154, 167, 167);
+            border-radius: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+
+<body id="bg" style="background-image: url('{% static 'img/background5.png' %}');">
+    <section class="main">
+        <div class="box">
+            <center>
+                <h2>Customer Registration</h2>
+                <hr>
+            </center>
+            <table></table>
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input id="in1" type="text" name="c_text" placeholder="Full Name">
+                <br><br>
+                <label>Gender</label><br>
+                <input type="radio" name="c_gender" value="Gender">
+                <label>Male</label>
+                <input type="radio" name="c_gender" value="male">
+                <label>female</label>
+                <input type="radio" name="c_gender" value="female">
+                <label>Other</label><br><br>
+                <input type="mail" name="c_mail" placeholder="Email">
+                <input type="phone" name="c_phone" placeholder="Phone"><br><br>
+                <input type="password" name="c_password" placeholder="Password"><br> <br>
+                <textarea name="c_address" cols="30" rows="3" placeholder="Address"></textarea><br><br>
+                <input type="file" name="c_img" placeholder="Upload Image">
+                <br><br>
+                <center><button type="submit">Submit</button></center><br>
+                <center><button><a href="http://127.0.0.1:8000/common/">Back To Home</a></button></center>
+            </form>
+        </div>
+    </section>
+   
+</body>
+
+</html>
